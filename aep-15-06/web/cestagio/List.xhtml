@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCestagioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCestagioEmpty}" rendered="#{cestagioController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cestagioController.items.rowCount > 0}">
+                    <h:outputText value="#{cestagioController.pagination.pageFirstItem + 1}..#{cestagioController.pagination.pageLastItem + 1}/#{cestagioController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cestagioController.previous}" value="#{bundle.Previous} #{cestagioController.pagination.pageSize}" rendered="#{cestagioController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cestagioController.next}" value="#{bundle.Next} #{cestagioController.pagination.pageSize}" rendered="#{cestagioController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cestagioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_IDcampoestagio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.IDcampoestagio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_nomeCampoestagio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomeCampoestagio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_curso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.curso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_cnpjCampoestagio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cnpjCampoestagio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_enderecoCampoestagio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enderecoCampoestagio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_cidadeCampoestagio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cidadeCampoestagio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_vagasSolicitadas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vagasSolicitadas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_vagasdisponiveis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vagasdisponiveis}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_periodoinicial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.periodoinicial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_periodofinal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.periodofinal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCestagioTitle_responsavelCampoestagio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.responsavelCampoestagio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cestagioController.prepareView}" value="#{bundle.ListCestagioViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cestagioController.prepareEdit}" value="#{bundle.ListCestagioEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cestagioController.destroy}" value="#{bundle.ListCestagioDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cestagioController.prepareCreate}" value="#{bundle.ListCestagioCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCestagioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

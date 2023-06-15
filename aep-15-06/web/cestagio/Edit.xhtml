@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCestagioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_IDcampoestagio}" for="IDcampoestagio" />
+                    <h:inputText id="IDcampoestagio" value="#{cestagioController.selected.IDcampoestagio}" title="#{bundle.EditCestagioTitle_IDcampoestagio}" required="true" requiredMessage="#{bundle.EditCestagioRequiredMessage_IDcampoestagio}"/>
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_nomeCampoestagio}" for="nomeCampoestagio" />
+                    <h:inputText id="nomeCampoestagio" value="#{cestagioController.selected.nomeCampoestagio}" title="#{bundle.EditCestagioTitle_nomeCampoestagio}" required="true" requiredMessage="#{bundle.EditCestagioRequiredMessage_nomeCampoestagio}"/>
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_curso}" for="curso" />
+                    <h:inputText id="curso" value="#{cestagioController.selected.curso}" title="#{bundle.EditCestagioTitle_curso}" required="true" requiredMessage="#{bundle.EditCestagioRequiredMessage_curso}"/>
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_cnpjCampoestagio}" for="cnpjCampoestagio" />
+                    <h:inputText id="cnpjCampoestagio" value="#{cestagioController.selected.cnpjCampoestagio}" title="#{bundle.EditCestagioTitle_cnpjCampoestagio}" />
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_enderecoCampoestagio}" for="enderecoCampoestagio" />
+                    <h:inputText id="enderecoCampoestagio" value="#{cestagioController.selected.enderecoCampoestagio}" title="#{bundle.EditCestagioTitle_enderecoCampoestagio}" required="true" requiredMessage="#{bundle.EditCestagioRequiredMessage_enderecoCampoestagio}"/>
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_cidadeCampoestagio}" for="cidadeCampoestagio" />
+                    <h:inputText id="cidadeCampoestagio" value="#{cestagioController.selected.cidadeCampoestagio}" title="#{bundle.EditCestagioTitle_cidadeCampoestagio}" required="true" requiredMessage="#{bundle.EditCestagioRequiredMessage_cidadeCampoestagio}"/>
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_vagasSolicitadas}" for="vagasSolicitadas" />
+                    <h:inputText id="vagasSolicitadas" value="#{cestagioController.selected.vagasSolicitadas}" title="#{bundle.EditCestagioTitle_vagasSolicitadas}" />
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_vagasdisponiveis}" for="vagasdisponiveis" />
+                    <h:inputText id="vagasdisponiveis" value="#{cestagioController.selected.vagasdisponiveis}" title="#{bundle.EditCestagioTitle_vagasdisponiveis}" />
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_periodoinicial}" for="periodoinicial" />
+                    <h:inputText id="periodoinicial" value="#{cestagioController.selected.periodoinicial}" title="#{bundle.EditCestagioTitle_periodoinicial}" />
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_periodofinal}" for="periodofinal" />
+                    <h:inputText id="periodofinal" value="#{cestagioController.selected.periodofinal}" title="#{bundle.EditCestagioTitle_periodofinal}" />
+                    <h:outputLabel value="#{bundle.EditCestagioLabel_responsavelCampoestagio}" for="responsavelCampoestagio" />
+                    <h:inputText id="responsavelCampoestagio" value="#{cestagioController.selected.responsavelCampoestagio}" title="#{bundle.EditCestagioTitle_responsavelCampoestagio}" required="true" requiredMessage="#{bundle.EditCestagioRequiredMessage_responsavelCampoestagio}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{cestagioController.update}" value="#{bundle.EditCestagioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCestagioViewLink}"/>
+                <br />
+                <h:commandLink action="#{cestagioController.prepareList}" value="#{bundle.EditCestagioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCestagioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

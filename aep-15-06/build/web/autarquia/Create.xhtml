@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAutarquiaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAutarquiaLabel_IDautarquia}" for="IDautarquia" />
+                    <h:inputText id="IDautarquia" value="#{autarquiaController.selected.IDautarquia}" title="#{bundle.CreateAutarquiaTitle_IDautarquia}" required="true" requiredMessage="#{bundle.CreateAutarquiaRequiredMessage_IDautarquia}"/>
+                    <h:outputLabel value="#{bundle.CreateAutarquiaLabel_nomeAutarquia}" for="nomeAutarquia" />
+                    <h:inputText id="nomeAutarquia" value="#{autarquiaController.selected.nomeAutarquia}" title="#{bundle.CreateAutarquiaTitle_nomeAutarquia}" required="true" requiredMessage="#{bundle.CreateAutarquiaRequiredMessage_nomeAutarquia}"/>
+                    <h:outputLabel value="#{bundle.CreateAutarquiaLabel_cnpjAutarquia}" for="cnpjAutarquia" />
+                    <h:inputText id="cnpjAutarquia" value="#{autarquiaController.selected.cnpjAutarquia}" title="#{bundle.CreateAutarquiaTitle_cnpjAutarquia}" />
+                    <h:outputLabel value="#{bundle.CreateAutarquiaLabel_diretorAutarquia}" for="diretorAutarquia" />
+                    <h:inputText id="diretorAutarquia" value="#{autarquiaController.selected.diretorAutarquia}" title="#{bundle.CreateAutarquiaTitle_diretorAutarquia}" required="true" requiredMessage="#{bundle.CreateAutarquiaRequiredMessage_diretorAutarquia}"/>
+                    <h:outputLabel value="#{bundle.CreateAutarquiaLabel_enderecoAutarquia}" for="enderecoAutarquia" />
+                    <h:inputText id="enderecoAutarquia" value="#{autarquiaController.selected.enderecoAutarquia}" title="#{bundle.CreateAutarquiaTitle_enderecoAutarquia}" required="true" requiredMessage="#{bundle.CreateAutarquiaRequiredMessage_enderecoAutarquia}"/>
+                    <h:outputLabel value="#{bundle.CreateAutarquiaLabel_cidadeAutarquia}" for="cidadeAutarquia" />
+                    <h:inputText id="cidadeAutarquia" value="#{autarquiaController.selected.cidadeAutarquia}" title="#{bundle.CreateAutarquiaTitle_cidadeAutarquia}" required="true" requiredMessage="#{bundle.CreateAutarquiaRequiredMessage_cidadeAutarquia}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{autarquiaController.create}" value="#{bundle.CreateAutarquiaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{autarquiaController.prepareList}" value="#{bundle.CreateAutarquiaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAutarquiaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

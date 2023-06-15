@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateIesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateIesLabel_IDies}" for="IDies" />
+                    <h:inputText id="IDies" value="#{iesController.selected.IDies}" title="#{bundle.CreateIesTitle_IDies}" required="true" requiredMessage="#{bundle.CreateIesRequiredMessage_IDies}"/>
+                    <h:outputLabel value="#{bundle.CreateIesLabel_nomeIes}" for="nomeIes" />
+                    <h:inputText id="nomeIes" value="#{iesController.selected.nomeIes}" title="#{bundle.CreateIesTitle_nomeIes}" required="true" requiredMessage="#{bundle.CreateIesRequiredMessage_nomeIes}"/>
+                    <h:outputLabel value="#{bundle.CreateIesLabel_cnpjIes}" for="cnpjIes" />
+                    <h:inputText id="cnpjIes" value="#{iesController.selected.cnpjIes}" title="#{bundle.CreateIesTitle_cnpjIes}" />
+                    <h:outputLabel value="#{bundle.CreateIesLabel_diretorIes}" for="diretorIes" />
+                    <h:inputText id="diretorIes" value="#{iesController.selected.diretorIes}" title="#{bundle.CreateIesTitle_diretorIes}" required="true" requiredMessage="#{bundle.CreateIesRequiredMessage_diretorIes}"/>
+                    <h:outputLabel value="#{bundle.CreateIesLabel_enderecoIes}" for="enderecoIes" />
+                    <h:inputText id="enderecoIes" value="#{iesController.selected.enderecoIes}" title="#{bundle.CreateIesTitle_enderecoIes}" required="true" requiredMessage="#{bundle.CreateIesRequiredMessage_enderecoIes}"/>
+                    <h:outputLabel value="#{bundle.CreateIesLabel_cidadeIes}" for="cidadeIes" />
+                    <h:inputText id="cidadeIes" value="#{iesController.selected.cidadeIes}" title="#{bundle.CreateIesTitle_cidadeIes}" required="true" requiredMessage="#{bundle.CreateIesRequiredMessage_cidadeIes}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{iesController.create}" value="#{bundle.CreateIesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{iesController.prepareList}" value="#{bundle.CreateIesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateIesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

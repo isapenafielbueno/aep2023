@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCestagioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCestagioLabel_IDcampoestagio}"/>
+                    <h:outputText value="#{cestagioController.selected.IDcampoestagio}" title="#{bundle.ViewCestagioTitle_IDcampoestagio}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_nomeCampoestagio}"/>
+                    <h:outputText value="#{cestagioController.selected.nomeCampoestagio}" title="#{bundle.ViewCestagioTitle_nomeCampoestagio}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_curso}"/>
+                    <h:outputText value="#{cestagioController.selected.curso}" title="#{bundle.ViewCestagioTitle_curso}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_cnpjCampoestagio}"/>
+                    <h:outputText value="#{cestagioController.selected.cnpjCampoestagio}" title="#{bundle.ViewCestagioTitle_cnpjCampoestagio}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_enderecoCampoestagio}"/>
+                    <h:outputText value="#{cestagioController.selected.enderecoCampoestagio}" title="#{bundle.ViewCestagioTitle_enderecoCampoestagio}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_cidadeCampoestagio}"/>
+                    <h:outputText value="#{cestagioController.selected.cidadeCampoestagio}" title="#{bundle.ViewCestagioTitle_cidadeCampoestagio}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_vagasSolicitadas}"/>
+                    <h:outputText value="#{cestagioController.selected.vagasSolicitadas}" title="#{bundle.ViewCestagioTitle_vagasSolicitadas}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_vagasdisponiveis}"/>
+                    <h:outputText value="#{cestagioController.selected.vagasdisponiveis}" title="#{bundle.ViewCestagioTitle_vagasdisponiveis}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_periodoinicial}"/>
+                    <h:outputText value="#{cestagioController.selected.periodoinicial}" title="#{bundle.ViewCestagioTitle_periodoinicial}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_periodofinal}"/>
+                    <h:outputText value="#{cestagioController.selected.periodofinal}" title="#{bundle.ViewCestagioTitle_periodofinal}"/>
+                    <h:outputText value="#{bundle.ViewCestagioLabel_responsavelCampoestagio}"/>
+                    <h:outputText value="#{cestagioController.selected.responsavelCampoestagio}" title="#{bundle.ViewCestagioTitle_responsavelCampoestagio}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cestagioController.destroyAndView}" value="#{bundle.ViewCestagioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCestagioEditLink}"/>
+                <br />
+                <h:commandLink action="#{cestagioController.prepareCreate}" value="#{bundle.ViewCestagioCreateLink}" />
+                <br />
+                <h:commandLink action="#{cestagioController.prepareList}" value="#{bundle.ViewCestagioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCestagioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
